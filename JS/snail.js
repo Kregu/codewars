@@ -1,13 +1,11 @@
 function snail(arr) {
     const resultArr = [];
-    let len = arr.length;
-    let iterations = len * 2  - 1;
+    let iterations = arr.length * 2  - 1;
     let cycle = 0;
 
     if (iterations === 1) {
         return arr[0];
     }
-
     for (let t = 1; t <= iterations; t++) {
         for (let i = cycle; i < arr[0].length - cycle; i++) {
             resultArr.push(arr[cycle][i]);
@@ -18,7 +16,6 @@ function snail(arr) {
         arr = rotate90(arr);
         cycle = Math.floor(t / 4);
     }
-
     return resultArr;
 }
 
@@ -27,7 +24,6 @@ function rotate90(arr) {
     for (let i = 0; i < arr.length; i++) {
         newArr[i] = Array.from(arr[i]);
     }
-
     for (let i = 0; i < arr.length; i++){
         for (let j = 0; j < arr[0].length; j++){
             newArr[i][j] = arr[j][arr.length - 1 - i]
